@@ -6,15 +6,25 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 13:32:45 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/11/29 21:29:32 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/01 12:53:40 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1
+# endif
+# if BUFFER_SIZE < 0
+#  undef BUFFER_SIZE
+#  define BUFFER_SIZE 0
+# endif
+
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
+# include <string.h>
 
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);

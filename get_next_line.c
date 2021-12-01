@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:18:31 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/11/29 21:35:15 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/01 17:51:25 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ static char	*ft_gnl2(int fd, char *rtn, int reading, char *buf)
 
 	buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 2);
 	reading = read(fd, buf, BUFFER_SIZE);
-	buf[reading] = '\0';
 	rtn = ft_insert_ro(&ro[0], rtn);
-	if ((!reading && !rtn) || reading == -1)
+	if ((!reading && !rtn) || reading < 0)
 	{
 		free((void *)buf);
 		return (NULL);
 	}
+	buf[reading] = '\0';
 	while (!ft_nl_pos(buf) && reading)
 	{
 		rtn = ft_build_string(rtn, buf, reading);
@@ -88,5 +88,7 @@ static char	*ft_gnl2(int fd, char *rtn, int reading, char *buf)
 
 char	*get_next_line(int fd)
 {
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (NULL);
 	return (ft_gnl2(fd, NULL, 1, NULL));
 }
