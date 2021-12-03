@@ -1,0 +1,104 @@
+= Host-specific information ====================================================
+$> hostname; uname -msr
+c2s8d26.42wolfsburg.de
+Darwin 19.6.0 x86_64
+$> date
+Mon Nov 29 21:20:01 CET 2021
+$> gcc --version
+Configured with: --prefix=/Applications/Xcode.app/Contents/Developer/usr --with-gxx-include-dir=/Library/Developer/CommandLineTools/SDKs/MacOSX10.15.sdk/usr/include/c++/4.2.1
+Apple clang version 12.0.0 (clang-1200.0.32.28)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+$> clang --version
+Apple clang version 12.0.0 (clang-1200.0.32.28)
+Target: x86_64-apple-darwin19.6.0
+Thread model: posix
+InstalledDir: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+
+= User files collection ========================================================
+Collecting user files from Vogsphere
+Repository URL: git@vogsphere.42wolfsburg.de:vogsphere/intra-uuid-667de94c-2082-45c0-9574-130b7f56768c-3870744
+
+= Git history ==================================================================
+$> git -C /tmp/tmpiyyxxjbw/user log --pretty='%H - %an, %ad : %s'
+029e3b0daecdea16f42e975ac2603a1e166543fd - Dennis Benkhardt, Mon Nov 29 13:23:33 2021 +0100 : fixed time_outs
+3979ac1f50d892baa00de0eb78583b6ccda57cde - Dennis Benkhardt, Mon Nov 29 12:20:07 2021 +0100 : ready for eval
+e4d2ff489296d67743232d4375d13643f4fa628e - Dennis Benkhardt, Sun Nov 28 13:07:23 2021 +0100 : rollback
+ed2565aced43d8e4e95bf3a09ae801642da77ec9 - Dennis Benkhardt, Sun Nov 28 12:20:56 2021 +0100 : almost
+66f8bb72da709a24f1ed1524330dba77baf18419 - Dennis Benkhardt, Sun Nov 28 11:31:13 2021 +0100 : got rid of static malloc
+0890aa545b27aa798543a4c59d6ed1a4127b9014 - Dennis Benkhardt, Sat Nov 27 17:23:16 2021 +0100 : hopefully thats it...
+6b83e0448a00a1e10026c6069d1334d6f7aa6868 - Dennis Benkhardt, Sat Nov 27 16:51:59 2021 +0100 : fixed leak
+3c66a46afabdc645f1b63ba13a0037b96477bd8e - Dennis Benkhardt, Sat Nov 27 14:24:03 2021 +0000 : deleted unnecessary files
+20f44ebf1365555bf39d2aa0a10c0aafd6575480 - Dennis Benkhardt, Sat Nov 27 14:23:15 2021 +0000 : fixed some leaks, still have to fix static var leak
+e3db2b6f0338a426789eaef60df16d32497ae087 - Dennis Benkhardt, Sat Nov 27 12:23:12 2021 +0100 : almost...
+32bfde10ae3e68fcb674ad6c35a1b165ffbb1db7 - db, Fri Nov 26 05:04:19 2021 +0100 : its working fine, need to fix leaks
+46f0228dd9b5d3d64390b475430fc02162b4dd11 - db, Thu Nov 25 12:08:44 2021 +0100 : started complete new version of gnl (dev2, iterative)
+69a5a81b1b901957f6f4627c86e9eb84ec021e2a - Denni, Thu Nov 25 12:04:19 2021 +0100 : update for iterative version (recursive in comments)
+b9c5998304e209ead9bab5d26d74bf12f17f73e0 - db, Sun Nov 21 15:52:57 2021 +0100 : functionality is ok, we still have some mem leaks to investigate
+77607c34563f9cb39ff62319fa5e9a0663732199 - db, Sat Nov 20 15:23:04 2021 +0100 : added function for rightover, need to fix static var setup
+aa2dc09cb3aa578997549d54dbeabf180f8f702b - Denni, Wed Nov 17 20:34:55 2021 +0100 : added static variable, still need check function reworked, removed unnecessary files
+66539c23cb41cf9afbdd73f77db39457366443fc - Denni, Wed Nov 17 20:34:06 2021 +0100 : added static variable, still need check function reworked
+ff945999e840eee4e7d94a25e4889f402d096ce5 - Denni, Thu Nov 11 06:43:02 2021 +0100 : fixed seg
+71cb4cbeacd7bd24f3339436146638ea9187c061 - Denni, Thu Nov 11 06:35:47 2021 +0100 : we near goal, it ends line (but seg fault on BUFFER_SIZE=Line length)
+db67f92b5e490d76e0fbdf44a66fd3fb9744d99f - Denni, Wed Nov 10 00:30:28 2021 +0100 : reading working now, need to check for new line
+43f7d6d14500c0bcfc5fd3e30b3e37be01943ab4 - Denni, Fri Nov 5 15:19:52 2021 +0100 : devfiles added
+
+= Collected files ==========================================
+$> ls -lAR /tmp/tmpiyyxxjbw/user
+total 64
+-rw-r--r--  1 root  wheel  6148 Nov 29 21:20 .DS_Store
+-rw-r--r--  1 root  wheel  9676 Nov 29 21:20 __GIT_HISTORY
+-rw-r--r--  1 root  wheel  2396 Nov 29 21:20 get_next_line.c
+-rw-r--r--  1 root  wheel  1328 Nov 29 21:20 get_next_line.h
+-rw-r--r--  1 root  wheel  2165 Nov 29 21:20 get_next_line_utils.c
+
+= basic_tests ==================================================================
+$> /usr/bin/norminette  get_next_line.h get_next_line_utils.c get_next_line.c | grep -E '^(Error|Warning)'
+
+
+total 104
+-rw-r--r--  1 deepthought  101  2396 Nov 29 20:20 get_next_line.c
+-rw-r--r--  1 deepthought  101  1328 Nov 29 20:20 get_next_line.h
+-rw-r--r--  1 deepthought  101  2165 Nov 29 20:20 get_next_line_utils.c
+-rw-r--r--  1 deepthought  101  1273 Nov 29 20:20 limited_pipe.c
+-rw-r--r--  1 deepthought  101   527 Nov 29 20:20 main1.c
+-rw-r--r--  1 deepthought  101  1382 Nov 29 20:20 main2.c
+-rw-r--r--  1 deepthought  101   448 Nov 29 20:20 main2_generator.c
+-rw-r--r--  1 deepthought  101   721 Nov 29 20:20 main3.c
+-rw-r--r--  1 deepthought  101  2929 Nov 29 20:20 malloc.c
+-rw-r--r--  1 deepthought  101  1447 Nov 29 20:20 ref_get_next_line.c
+-rwxr-xr-x  1 deepthought  101  1552 Nov 29 20:20 test.sh
+-rwxr-xr-x  1 deepthought  101   719 Nov 29 20:20 test2.sh
+-rwxr-xr-x  1 deepthought  101  1523 Nov 29 20:20 test3.sh
+
+
+1
+
+FAILED
+
+
+1
+FAILED
+
+GNL KO
+Grade: 0
+
+= bonus_tests ==================================================================
+total 40
+-rw-r--r--  1 deepthought  101  1273 Nov 29 20:20 limited_pipe.c
+-rw-r--r--  1 deepthought  101  1630 Nov 29 20:20 main1.c
+-rw-r--r--  1 deepthought  101  2929 Nov 29 20:20 malloc.c
+-rw-r--r--  1 deepthought  101  1447 Nov 29 20:20 ref_get_next_line.c
+-rwxr-xr-x  1 deepthought  101   864 Nov 29 20:20 test.sh
+
+
+clang: error: no such file or directory: 'get_next_line_bonus.c'
+clang: error: no such file or directory: 'get_next_line_utils_bonus.c'
+COMPILATION FAILED
+
+
+GNL KO
+Grade: 0
+
+= Final grade: 0 ===============================================================
