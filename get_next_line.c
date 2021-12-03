@@ -6,13 +6,13 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 10:18:31 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/01 17:51:25 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/03 12:26:22 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	ft_nl_pos(char *rtn)
+static int	ft_nl_pos(char *rtn)
 {
 	int	index;
 
@@ -23,7 +23,7 @@ int	ft_nl_pos(char *rtn)
 	return (0);
 }
 
-char	*ft_nl_line(int pos, char *rtn, void *buf)
+static char	*ft_nl_line(int pos, char *rtn, void *buf)
 {
 	char	*n_rtn;
 	int		index;
@@ -38,7 +38,7 @@ char	*ft_nl_line(int pos, char *rtn, void *buf)
 	return (n_rtn);
 }
 
-char	*ft_build_string(char *s1, char *s2, int reading)
+static char	*ft_build_string(char *s1, char *s2, int reading)
 {
 	char	*rtn;
 
@@ -88,7 +88,7 @@ static char	*ft_gnl2(int fd, char *rtn, int reading, char *buf)
 
 char	*get_next_line(int fd)
 {
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE == 0)
 		return (NULL);
-	return (ft_gnl2(fd, NULL, 1, NULL));
+	return (ft_gnl2(fd, NULL, 0, NULL));
 }

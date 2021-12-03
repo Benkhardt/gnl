@@ -6,7 +6,7 @@
 /*   By: dbenkhar <dbenkhar@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/28 13:32:45 by dbenkhar          #+#    #+#             */
-/*   Updated: 2021/12/01 12:53:40 by dbenkhar         ###   ########.fr       */
+/*   Updated: 2021/12/03 12:10:42 by dbenkhar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,10 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
-# include <string.h>
 
 char	*get_next_line(int fd);
 int		ft_strlen(const char *str);
-char	*ft_free(void *str);
 char	*ft_strdup(const char *s1);
-char	*ft_checkfree(char *str1);
 char	*ft_strjoin(char const *s1, char const *s2);
 void	ft_rightover(int pos, char *buf, void *ptr);
 char	*ft_insert_ro(char *str, char *rtn);
